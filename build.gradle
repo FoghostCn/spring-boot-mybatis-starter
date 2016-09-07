@@ -1,0 +1,45 @@
+buildscript {
+  ext {
+    springBootVersion = '1.4.0.RELEASE'
+  }
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+apply plugin: 'idea'
+
+jar {
+  baseName = 'shop'
+  version = '0.0.1-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+  jcenter()
+}
+
+configurations {
+//  compile.exclude module: "spring-boot-starter-tomcat"
+}
+
+dependencies {
+  compile 'org.springframework.boot:spring-boot-starter-web:1.4.0.RELEASE'
+  compile "org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1"
+  runtime 'mysql:mysql-connector-java:5.1.39'
+  compile 'org.apache.httpcomponents:httpclient:4.5.2'
+
+//  compile 'com.github.pagehelper:pagehelper:4.1.6'
+//  compile "org.springframework.boot:spring-boot-starter-jetty:1.4.0.RELEASE"
+  compile 'com.jcraft:jsch:0.1.53'
+  testCompile 'org.springframework.boot:spring-boot-starter-test:1.4.0.RELEASE'
+
+}
+
